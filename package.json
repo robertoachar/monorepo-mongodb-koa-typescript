@@ -1,11 +1,11 @@
 {
-  "name": "workflow-typescript",
+  "name": "monorepo-mongodb-koa-typescript",
   "version": "1.0.0",
-  "description": "A playground for Node with TypeScript",
+  "description": "Monorepo for MongoDB and Koa with TypeScript.",
   "author": "Roberto Achar <robertoachar@gmail.com>",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/robertoachar/workflow-typescript#readme",
+  "homepage": "https://github.com/robertoachar/monorepo-mongodb-koa-typescript#readme",
   "keywords": [
     "node",
     "typescript"
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robertoachar/workflow-typescript.git"
+    "url": "https://github.com/robertoachar/monorepo-mongodb-koa-typescript.git"
   },
   "bugs": {
-    "url": "https://github.com/robertoachar/workflow-typescript/issues"
+    "url": "https://github.com/robertoachar/monorepo-mongodb-koa-typescript/issues"
   },
   "dependencies": {},
   "devDependencies": {

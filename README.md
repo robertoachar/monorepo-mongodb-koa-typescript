@@ -1,8 +1,8 @@
-# workflow-typescript
+# monorepo-mongodb-koa-typescript
 
 [![License][license-badge]][license-url]
 
-> A playground for Node with TypeScript
+> Monorepo for MongoDB and Koa with TypeScript.
 
 ## Features
 
@@ -22,7 +22,7 @@ This workflow provides the following features:
 - Clone the repo
 
 ```bash
-$ git clone https://github.com/robertoachar/workflow-typescript.git
+$ git clone https://github.com/robertoachar/monorepo-mongodb-koa-typescript.git
 ```
 
 - Install dependencies
@@ -52,9 +52,9 @@ $ yarn
 
 ## License
 
-[MIT](https://github.com/robertoachar/workflow-typescript/blob/master/LICENSE)
+[MIT](https://github.com/robertoachar/monorepo-mongodb-koa-typescript/blob/master/LICENSE)
 
-[license-badge]: https://img.shields.io/github/license/robertoachar/workflow-typescript.svg
+[license-badge]: https://img.shields.io/github/license/robertoachar/monorepo-mongodb-koa-typescript.svg
 [license-url]: https://opensource.org/licenses/MIT
 
 [editorconfig-url]: https://editorconfig.org/
