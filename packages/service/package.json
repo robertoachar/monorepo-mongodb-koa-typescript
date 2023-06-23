@@ -1,0 +1,11 @@
+{
+  "name": "@monorepo/service",
+  "version": "1.0.0",
+  "description": "Monorepo Service",
+  "exports": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@monorepo/repository": "1.0.0",
+    "@monorepo/types": "1.0.0"
+  }
+}
