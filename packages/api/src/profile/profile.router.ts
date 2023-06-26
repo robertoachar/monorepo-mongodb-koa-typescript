@@ -1,13 +1,19 @@
 import Router from 'koa-router';
 import { ProfileController } from './profile.controller';
 
-const controller = new ProfileController();
+export default class ProfileRouter {
+  private routerConfig = new Router({
+    prefix: '/profiles',
+  });
 
-const profileRouter = new Router({
-  prefix: '/profiles',
-});
+  private controller = new ProfileController();
 
-profileRouter.get('/', (ctx) => controller.list(ctx));
-profileRouter.post('/', (ctx) => controller.create(ctx));
+  constructor() {
+    this.routerConfig.get('/', (ctx) => this.controller.list(ctx));
+    this.routerConfig.post('/', (ctx) => this.controller.create(ctx));
+  }
 
-export { profileRouter };
+  public get routers(): Router {
+    return this.routerConfig;
+  }
+}
