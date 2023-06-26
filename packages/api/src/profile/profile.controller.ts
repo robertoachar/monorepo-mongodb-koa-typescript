@@ -11,12 +11,10 @@ interface IProfileController {
 }
 
 export class ProfileController implements IProfileController {
-  private service: IProfileService = new ProfileService();
+  private service: IProfileService;
 
   constructor(profileService?: IProfileService) {
-    if (profileService) {
-      this.service = profileService;
-    }
+    this.service = profileService || new ProfileService();
   }
 
   async create(ctx: Koa.Context): Promise<void> {
