@@ -19,14 +19,11 @@ export class ProfileController implements IProfileController {
 
   async create(ctx: Koa.Context): Promise<void> {
     const profileData = <IProfileCreate>ctx.request.body;
-    const profile = await this.service.createProfile(profileData);
 
-    ctx.body = profile;
+    ctx.body = await this.service.createProfile(profileData);
   }
 
   async list(ctx: Koa.Context): Promise<void> {
-    const profiles = await this.service.getProfiles();
-
-    ctx.body = profiles;
+    ctx.body = await this.service.getProfiles();
   }
 }
