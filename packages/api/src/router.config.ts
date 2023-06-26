@@ -1,6 +1,6 @@
 import Koa from 'koa';
-import { IBaseRouter } from './base.router';
-import MainRouter from './mainRouter';
+import { IBaseRouter } from './router.base';
+import MainRouter from './main.router';
 import ProfileRouter from './profile/profile.router';
 
 export default class ConfigRouter {

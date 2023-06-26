@@ -1,5 +1,5 @@
 import { ProfileController } from './profile.controller';
-import { BaseRouter, IBaseRouter } from '../base.router';
+import { BaseRouter, IBaseRouter } from '../router.base';
 
 export default class ProfileRouter extends BaseRouter implements IBaseRouter {
   private controller = new ProfileController();

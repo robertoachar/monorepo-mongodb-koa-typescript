@@ -8,7 +8,6 @@ export class BaseRouter {
   public routerConfig: Router;
 
   constructor(prefix?: string) {
-
     const config: Router.IRouterOptions = {};
     if (prefix) config.prefix = `/${prefix}`;
 

@@ -1,5 +1,5 @@
 import * as Koa from 'koa';
-import { BaseRouter, IBaseRouter } from './base.router';
+import { BaseRouter, IBaseRouter } from './router.base';
 
 export default class MainRouter extends BaseRouter implements IBaseRouter {
   constructor() {

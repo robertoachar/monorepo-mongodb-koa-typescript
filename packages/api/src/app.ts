@@ -4,7 +4,7 @@ import cors from '@koa/cors';
 import helmet from 'koa-helmet';
 
 import { error } from './error';
-import ConfigRouter from './config.router';
+import ConfigRouter from './router.config';
 
 const app = new Koa();
 app.use(cors());
