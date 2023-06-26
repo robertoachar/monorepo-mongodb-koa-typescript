@@ -1,14 +1,16 @@
 import * as Koa from 'koa';
-import Router from 'koa-router';
+import { BaseRouter, IBaseRouter } from './base.router';
 
-const mainRouter = new Router();
+export default class MainRouter extends BaseRouter implements IBaseRouter {
+  constructor() {
+    super();
 
-mainRouter.get('/', (ctx: Koa.Context) => {
-  const body = {
-    name: 'API',
-  };
+    this.routerConfig.get('/', (ctx: Koa.Context) => {
+      const body = {
+        name: 'API',
+      };
 
-  ctx.body = body;
-});
-
-export { mainRouter };
+      ctx.body = body;
+    });
+  }
+}

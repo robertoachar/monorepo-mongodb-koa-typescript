@@ -1,12 +1,18 @@
 import Router from 'koa-router';
 
-export default class BaseRouter {
+export interface IBaseRouter {
+  get routers(): Router;
+}
+
+export class BaseRouter {
   public routerConfig: Router;
 
-  constructor(prefix: string) {
-    this.routerConfig = new Router({
-      prefix: `/${prefix}`,
-    });
+  constructor(prefix?: string) {
+
+    const config: Router.IRouterOptions = {};
+    if (prefix) config.prefix = `/${prefix}`;
+
+    this.routerConfig = new Router(config);
   }
 
   public get routers(): Router {
