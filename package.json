@@ -16,7 +16,7 @@
     "./dist"
   ],
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "yarn workspace @monorepo/api start",
     "build": "webpack build --config webpack.config.ts",
     "lint": "jest --config jest-eslint.config.ts",
     "lint:watch": "jest --config jest-eslint.config.ts --watch",

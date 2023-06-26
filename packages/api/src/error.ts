@@ -8,10 +8,8 @@ export const error = async (ctx: Koa.Context, next: Koa.Next): Promise<void> =>
     const internalServerError =
       env['STAGE'] === 'dev' ? message : 'Something is broken';
 
-    console.log(err.name);
-
     switch (err.name) {
-      case 'Error':
+      case 'Error' || 'TypeError':
         ctx.status = 422;
         ctx.body = { message };
         break;
