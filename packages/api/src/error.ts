@@ -1,6 +1,7 @@
+import * as Koa from 'koa';
 import { env } from 'process';
 
-export const error = async (ctx, next) =>
+export const error = async (ctx: Koa.Context, next: Koa.Next): Promise<void> =>
   next().catch((err) => {
     const networkError = err.response && err.response.data;
     const message = networkError ? err.response.data.message : err.message;

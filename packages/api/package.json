@@ -18,6 +18,9 @@
     "tsx": "3.12.7"
   },
   "devDependencies": {
-    "@types/koa": "2.13.6"
+    "@types/koa": "2.13.6",
+    "@types/koa-bodyparser": "4.3.10",
+    "@types/koa-router": "7.4.4",
+    "@types/koa__cors": "4.0.0"
   }
 }
