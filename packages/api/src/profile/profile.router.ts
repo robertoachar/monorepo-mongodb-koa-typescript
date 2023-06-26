@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import { ProfileController } from './ProfileController';
+import { ProfileController } from './profile.controller';
 
 const controller = new ProfileController();
 
