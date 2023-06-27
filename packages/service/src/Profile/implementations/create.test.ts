@@ -4,8 +4,8 @@ import { mock } from 'jest-mock-extended';
 import { IProfile } from '@monorepo/types';
 import { IProfileRepository } from '@monorepo/repository';
 
-import { createProfile } from '../../../src/Profile/implementations';
-import { IProfileCreate } from '../../../src';
+import { createProfile } from '.';
+import { IProfileCreate } from '../..';
 
 describe('create', () => {
   describe('Should raise exception', () => {

@@ -3,12 +3,11 @@ import {
   IProfileService,
   ProfileService,
 } from '@monorepo/service';
-import { IProfile } from '@monorepo/types';
 import * as Koa from 'koa';
 
 interface IProfileController {
   create(ctx: Koa.Context): Promise<void>;
-  list(): Promise<IProfile[]>;
+  list(ctx: Koa.Context): Promise<void>;
 }
 
 export class ProfileController implements IProfileController {
@@ -24,7 +23,7 @@ export class ProfileController implements IProfileController {
     ctx.body = await this.service.createProfile(profileData);
   }
 
-  async list(): Promise<IProfile[]> {
-    return this.service.getProfiles();
+  async list(ctx: Koa.Context): Promise<void> {
+    ctx.body = await this.service.getProfiles();
   }
 }

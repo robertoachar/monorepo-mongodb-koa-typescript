@@ -4,7 +4,7 @@ import { mock } from 'jest-mock-extended';
 import { IProfile } from '@monorepo/types';
 import { IProfileRepository } from '@monorepo/repository';
 
-import { getProfileById } from '../../../src/Profile/implementations';
+import { getProfileById } from '.';
 
 describe('getById', () => {
   test('Should return empty case no profiles on database', async () => {

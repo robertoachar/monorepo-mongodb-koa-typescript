@@ -1,4 +1,3 @@
-import * as Koa from 'koa';
 import Router from 'koa-router';
 
 export interface IBaseRouter {
@@ -17,9 +16,5 @@ export class BaseRouter {
 
   public get routers(): Router {
     return this.routerConfig;
-  }
-
-  async output<O>(ctx: Koa.Context, output: O): Promise<void> {
-    ctx.body = await output;
   }
 }
