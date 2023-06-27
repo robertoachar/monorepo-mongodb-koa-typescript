@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@monorepo/repository": "1.0.0",
-    "@monorepo/types": "1.0.0"
+    "@monorepo/types": "1.0.0",
+    "jest-mock-extended": "3.0.4"
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
