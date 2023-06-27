@@ -1,3 +1,5 @@
+import * as Koa from 'koa';
+import { IProfile } from '@monorepo/types';
 import { ProfileController } from './profile.controller';
 import { BaseRouter, IBaseRouter } from '../router.base';
 
@@ -7,7 +9,9 @@ export default class ProfileRouter extends BaseRouter implements IBaseRouter {
   constructor() {
     super('profiles');
 
-    this.routerConfig.get('/', (ctx) => this.controller.list(ctx));
+    this.routerConfig.get('/', (ctx: Koa.Context) =>
+      super.output<Promise<IProfile[]>>(ctx, this.controller.list())
+    );
     this.routerConfig.post('/', (ctx) => this.controller.create(ctx));
   }
 }
