@@ -6,7 +6,7 @@ import { IProfileRepository } from '@monorepo/repository';
 
 import { getProfileById } from '../../../src/Profile/implementations';
 
-describe('get', () => {
+describe('getById', () => {
   test('Should return empty case no profiles on database', async () => {
     // Arrange
     const id = 'ssijioj';
