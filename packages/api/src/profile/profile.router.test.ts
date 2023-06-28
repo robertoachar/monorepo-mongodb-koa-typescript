@@ -22,14 +22,14 @@ describe('ProfileRouter', () => {
       );
       expect(result.stack[0]?.path).toBe('/profiles');
 
-      expect(result.stack[1]?.methods.toString()).toBe(['POST'].toString());
-      expect(result.stack[1]?.path).toBe('/profiles');
-
-      expect(result.stack[2]?.methods.toString()).toBe(
+      expect(result.stack[1]?.methods.toString()).toBe(
         ['HEAD', 'GET'].toString()
       );
-      expect(result.stack[2]?.path).toBe('/profiles/:id');
-      expect(result.stack[2]?.paramNames[0]?.name).toBe('id');
+      expect(result.stack[1]?.path).toBe('/profiles/:id');
+      expect(result.stack[1]?.paramNames[0]?.name).toBe('id');
+
+      expect(result.stack[2]?.methods.toString()).toBe(['POST'].toString());
+      expect(result.stack[2]?.path).toBe('/profiles');
     });
   });
 });
