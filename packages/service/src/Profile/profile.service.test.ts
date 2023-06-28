@@ -31,8 +31,12 @@ describe('ProfileService', () => {
     // Act
     const result = await sut.createProfile(input);
 
-    // Assert
+    // Assert - mock
     expect(jest.isMockFunction(createProfile)).toBeTruthy();
+    expect(createProfile).toHaveBeenCalledTimes(1);
+    expect(createProfile).toHaveBeenCalledWith(repositoryMock, input);
+
+    // Assert - result
     expect(result).toBe(profile);
   });
 
@@ -45,8 +49,12 @@ describe('ProfileService', () => {
     // Act
     const result = await sut.getProfileById(input);
 
-    // Assert
+    // Assert - mock
     expect(jest.isMockFunction(getProfileById)).toBeTruthy();
+    expect(getProfileById).toHaveBeenCalledTimes(1);
+    expect(getProfileById).toHaveBeenCalledWith(repositoryMock, input);
+
+    // Assert - result
     expect(result).toBe(profile);
   });
 
@@ -58,9 +66,14 @@ describe('ProfileService', () => {
     // Act
     const result = await sut.getProfiles();
 
-    // Assert
+    // Assert - mock
     expect(jest.isMockFunction(getProfiles)).toBeTruthy();
+    expect(getProfiles).toHaveBeenCalledTimes(1);
+    expect(getProfiles).toHaveBeenCalledWith(repositoryMock);
+
+    // Assert - result
     expect(result).toHaveLength(1);
+
     expect(result[0]).toBe(profile);
   });
 });
