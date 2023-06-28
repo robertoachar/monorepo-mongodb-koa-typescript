@@ -4,11 +4,12 @@ import {
   IProfileService,
   ProfileService,
 } from '@monorepo/service';
-import * as Koa from 'koa';
+import * as KoaRouter from 'koa-router';
 
 interface IProfileController {
-  create(ctx: Koa.Context): Promise<void>;
-  list(ctx: Koa.Context): Promise<void>;
+  create(ctx: KoaRouter.RouterContext): Promise<void>;
+  list(ctx: KoaRouter.RouterContext): Promise<void>;
+  getById(ctx: KoaRouter.RouterContext): Promise<void>;
 }
 
 export class ProfileController implements IProfileController {
@@ -18,17 +19,17 @@ export class ProfileController implements IProfileController {
     this.service = profileService || new ProfileService();
   }
 
-  async create(ctx: Koa.Context): Promise<void> {
+  async create(ctx: KoaRouter.RouterContext): Promise<void> {
     const profileData = <IProfileCreate>ctx.request.body;
     ctx.body = await this.service.createProfile(profileData);
   }
 
-  async list(ctx: Koa.Context): Promise<void> {
+  async list(ctx: KoaRouter.RouterContext): Promise<void> {
     ctx.body = await this.service.getProfiles();
   }
 
-  async getById(ctx: Koa.Context): Promise<void> {
-    const profileData = ctx.params as IProfileGetById;
+  async getById(ctx: KoaRouter.RouterContext): Promise<void> {
+    const profileData = ctx.params as unknown as IProfileGetById;
     ctx.body = await this.service.getProfileById(profileData.id);
   }
 }
