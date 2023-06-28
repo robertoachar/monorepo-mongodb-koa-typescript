@@ -6,6 +6,8 @@
   "types": "./src/index.ts",
   "dependencies": {
     "@monorepo/types": "1.0.0",
+    "mongodb-memory-server": "8.13.0",
     "mongoose": "7.3.1"
+
   }
 }

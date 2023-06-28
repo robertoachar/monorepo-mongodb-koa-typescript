@@ -1,17 +1,20 @@
 import { describe, expect, test } from '@jest/globals';
-import { connectTest, disconnectTest, Profile } from '@monorepo/model';
+import { connectTest, disconnectTest } from '@monorepo/model';
 
 import { getProfileById } from './getProfileById';
+import { Factory, IFactory } from '../../factory';
 
 describe('getProfileById', () => {
+  let factory: IFactory;
 
   beforeAll(async () => {
+    factory = new Factory();
     await connectTest();
   });
 
   test('Should return profile', async () => {
     // Arrange
-    const profile = await new Profile({ name: 'Raí' }).save();
+    const profile = await factory.profile.stubSaved();
 
     // Act
     const result = await getProfileById(profile.id);
@@ -24,7 +27,7 @@ describe('getProfileById', () => {
   describe('Should return null', () => {
     test('case invalid id', async () => {
       // Arrange
-      await new Profile({ name: 'Raí' }).save();
+      await factory.profile.stubSaved();
 
       // Act
       const result = await getProfileById('649c746c3682a45c3d808e49');
