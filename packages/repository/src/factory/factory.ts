@@ -1,4 +1,4 @@
-import { IProfileFactory, ProfileFactory } from './profile.factory';
+import { IProfileFactory, ProfileFactory } from './domains/profile.factory';
 
 export interface IFactory {
   profile: IProfileFactory;
