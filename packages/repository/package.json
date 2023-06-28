@@ -7,5 +7,9 @@
   "dependencies": {
     "@monorepo/model": "1.0.0",
     "@monorepo/types": "1.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.5.0",
+    "mongodb-memory-server": "8.13.0"
   }
 }
