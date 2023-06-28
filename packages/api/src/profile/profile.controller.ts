@@ -1,5 +1,6 @@
 import {
   IProfileCreate,
+  IProfileGetById,
   IProfileService,
   ProfileService,
 } from '@monorepo/service';
@@ -24,5 +25,10 @@ export class ProfileController implements IProfileController {
 
   async list(ctx: Koa.Context): Promise<void> {
     ctx.body = await this.service.getProfiles();
+  }
+
+  async getById(ctx: Koa.Context): Promise<void> {
+    const profileData = ctx.params as IProfileGetById;
+    ctx.body = await this.service.getProfileById(profileData.id);
   }
 }

@@ -9,11 +9,11 @@ export default class ProfileRouter extends BaseRouter implements IBaseRouter {
     super('profiles');
 
     this.routerConfig.get('/', (ctx: Koa.Context) => this.controller.list(ctx));
+    this.routerConfig.get('/:id', (ctx: Koa.Context) =>
+      this.controller.getById(ctx)
+    );
     this.routerConfig.post('/', (ctx: Koa.Context) =>
       this.controller.create(ctx)
-    );
-    this.routerConfig.get('/:id', (ctx: Koa.Context) =>
-      this.controller.list(ctx)
     );
   }
 }
