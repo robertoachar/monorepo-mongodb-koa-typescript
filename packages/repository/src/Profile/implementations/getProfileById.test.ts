@@ -1,16 +1,12 @@
 import { describe, expect, test } from '@jest/globals';
-import { connect, disconnect, Profile } from '@monorepo/model';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+import { connectTest, disconnectTest, Profile } from '@monorepo/model';
 
 import { getProfileById } from './getProfileById';
 
 describe('getProfileById', () => {
-  let mongod: MongoMemoryServer;
 
   beforeAll(async () => {
-    mongod = await MongoMemoryServer.create();
-    const uri = mongod.getUri();
-    await connect(uri);
+    await connectTest();
   });
 
   test('Should return profile', async () => {
@@ -49,7 +45,6 @@ describe('getProfileById', () => {
   });
 
   afterAll(async () => {
-    await disconnect();
-    await mongod.stop();
+    await disconnectTest();
   });
 });
