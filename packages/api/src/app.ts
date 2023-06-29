@@ -4,8 +4,7 @@ import cors from '@koa/cors';
 import helmet from 'koa-helmet';
 
 import { error } from './error';
-import { mainRouter } from './mainRouter';
-import { profileRouter } from './profile/profile.router';
+import ConfigRouter from './router.config';
 
 const app = new Koa();
 app.use(cors());
@@ -13,11 +12,7 @@ app.use(helmet());
 app.use(bodyParser());
 app.use(error);
 
-const routers = [mainRouter, profileRouter];
-
-routers.forEach((router) => {
-  app.use(router.routes());
-  app.use(router.allowedMethods());
-});
+const configRouter = new ConfigRouter(app);
+configRouter.config();
 
 export { app };

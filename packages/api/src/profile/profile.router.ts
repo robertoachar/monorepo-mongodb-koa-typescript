@@ -1,13 +1,21 @@
-import Router from 'koa-router';
-import { ProfileController } from './ProfileController';
+import * as KoaRouter from 'koa-router';
+import { ProfileController } from './profile.controller';
+import { BaseRouter, IBaseRouter } from '../router.base';
 
-const controller = new ProfileController();
+export default class ProfileRouter extends BaseRouter implements IBaseRouter {
+  private controller = new ProfileController();
 
-const profileRouter = new Router({
-  prefix: '/profiles',
-});
+  constructor() {
+    super('profiles');
 
-profileRouter.get('/', (ctx) => controller.list(ctx));
-profileRouter.post('/', (ctx) => controller.create(ctx));
-
-export { profileRouter };
+    this.routerConfig.get('/', (ctx: KoaRouter.RouterContext) =>
+      this.controller.list(ctx)
+    );
+    this.routerConfig.get('/:id', (ctx: KoaRouter.RouterContext) =>
+      this.controller.getById(ctx)
+    );
+    this.routerConfig.post('/', (ctx: KoaRouter.RouterContext) =>
+      this.controller.create(ctx)
+    );
+  }
+}

@@ -4,12 +4,10 @@ import { IProfileCreate, IProfileService } from './interfaces';
 import { createProfile, getProfileById, getProfiles } from './implementations';
 
 export class ProfileService implements IProfileService {
-  private repository: IProfileRepository = new ProfileRepository();
+  private repository: IProfileRepository;
 
   constructor(profileRepository?: IProfileRepository) {
-    if (profileRepository) {
-      this.repository = profileRepository;
-    }
+    this.repository = profileRepository || new ProfileRepository();
   }
 
   createProfile(profile: IProfileCreate): Promise<IProfile> {
