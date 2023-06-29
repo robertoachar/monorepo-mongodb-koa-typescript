@@ -33,6 +33,7 @@ describe('IProfileController', () => {
       expect(result).toBe(profile);
     });
   });
+
   describe('list', () => {
     test('should add profiles on context body', async () => {
       // Arrange
@@ -56,6 +57,33 @@ describe('IProfileController', () => {
       const result = context.body as IProfile[];
       expect(result.length).toBe(1);
       expect(result[0]).toBe(profile);
+    });
+  });
+
+  describe('getById', () => {
+    test('should add profile on context body', async () => {
+      // Arrange
+      const serviceMock = mock<IProfileService>();
+      const profile: IProfile = {
+        name: 'Djair',
+        id: 'asdin1290',
+        createdAt: '2023/01/01',
+        updatedAt: '2023/01/01',
+      };
+      const context = createMockContext({
+        customProperties: { params: { id: profile.id } },
+      });
+      serviceMock.getProfileById
+        .calledWith(profile.id)
+        .mockReturnValue(Promise.resolve(profile));
+
+      const sut = new ProfileController(serviceMock);
+      // Act
+      await sut.getById(context);
+
+      // Assert
+      const result = context.body as IProfile;
+      expect(result).toBe(profile);
     });
   });
 });
