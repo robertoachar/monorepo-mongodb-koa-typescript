@@ -1,8 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
 import { connectTest, disconnectTest } from '@monorepo/model';
+import { Factory, IFactory } from '@monorepo/test';
 
 import { getProfiles } from './getProfiles';
-import { Factory, IFactory } from '../../factory';
 
 describe('getProfileById', () => {
   let factory: IFactory;
